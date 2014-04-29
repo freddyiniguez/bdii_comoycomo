@@ -1,0 +1,111 @@
+CREATE TABLE Cliente(
+codigo_cl NUMBER(10) NOT NULL,
+nombre_cl varchar (30),
+aPaterno_cl varchar (30),
+aMaterno_cl varchar (30),
+calle_cl varchar (30),
+colonia_cl varchar (30),
+PRIMARY KEY (codigo_cl)
+);
+
+create table Platillo(
+numero number(10) not null,
+nombre_pl varchar(30),
+descripcion varchar(100),
+precio number(3),
+cantidad number(3),
+codigo_cliente number(10),
+PRIMARY KEY (numero),
+foreign key (codigo_cliente) references Cliente(codigo_cl)
+);
+
+create table Poblacion(
+codigo_p number(10) not null,
+nombre_p varchar (30),
+num_habitantes number(10),
+numero_platillo number(10),
+PRIMARY KEY (codigo_p),
+foreign key (numero_platillo) references Platillo(numero)
+);
+
+create table Centro(
+codigo_c number(10) not null,
+nombre_c varchar (30),
+calle_c varchar (30),
+colonia_c varchar (30),
+telefono_c number(10),
+codigo_poblacion number(10),
+PRIMARY KEY (codigo_c),
+foreign key (codigo_poblacion) references Poblacion(codigo_p)
+);
+
+
+create table Empleado(
+rfc varchar (12) not null,
+nombre_e varchar (30),
+aPaterno_e varchar (30),
+aMaterno_e varchar (30),
+calle_e varchar (30),
+colonia_e varchar (30),
+telefono number(10),
+codigo_centro number(10),
+PRIMARY KEY (rfc),
+foreign key (codigo_centro) references Centro(codigo_c)
+);
+
+create table Factura(
+codigo_f number(10) not null,
+dia number(2),
+mes number(2),
+ano number(4),
+codigo_cliente number(10),
+PRIMARY KEY (codigo_f),
+foreign key (codigo_cliente) references Cliente(codigo_cl)
+);
+
+insert into  Cliente  (codigo_cl,nombre_cl,aPaterno_cl, aMaterno_cl, calle_cl, colonia_cl)  values   (1234567890, 'Osvaldo', 'Cordova', 'Aburto', 'Las Palomas', 'Aguilas 1');
+insert into  Cliente  (codigo_cl,nombre_cl,aPaterno_cl, aMaterno_cl, calle_cl, colonia_cl)  values   (1234567891, 'Ana', 'Perez','Salmeron','Emilio Carranza', 'Centro');
+insert into  Cliente  (codigo_cl,nombre_cl,aPaterno_cl, aMaterno_cl, calle_cl, colonia_cl)  values   (1233567890, 'Aida', 'Perez','Salmeron','Emilio Carranza','Centro');
+insert into  Cliente  (codigo_cl,nombre_cl,aPaterno_cl, aMaterno_cl, calle_cl, colonia_cl)  values   (1222222890, 'Ernesto','Chan','Peraza','Los corales','1 de mayo');
+insert into  Cliente  (codigo_cl,nombre_cl,aPaterno_cl, aMaterno_cl, calle_cl, colonia_cl)  values   (1234447890, 'Javier','Cetina','Avila','Tucanes','Aguilas 1');
+     
+     
+insert into  Platillo  (numero, nombre_pl, descripcion, precio, cantidad, codigo_cliente)  values  (1, 'Hotdog Sencillo', 'Hotdog con catsup y mayonesa', 13, 2, 1234567890);
+insert into  Platillo  (numero, nombre_pl, descripcion, precio, cantidad, codigo_cliente)  values  (2, 'Empanadas', 'Empanadas de queso y pollo', 6, 4, 1234567891);
+insert into  Platillo  (numero, nombre_pl, descripcion, precio, cantidad, codigo_cliente)  values  (3, 'Enchiladas', 'Enchiladas de queso y pollo ', 6, 6, 1233567890);
+insert into  Platillo  (numero, nombre_pl, descripcion, precio, cantidad, codigo_cliente)  values  (4, 'Papas locas', 'Papas con queso y tocino', 45, 1, 1222222890);
+insert into  Platillo  (numero, nombre_pl, descripcion, precio, cantidad, codigo_cliente)  values  (5, 'Hamburguesa Triple', 'Hamburguesa con queso, jamon y triple carne', 45, 1, 1234447890);
+     
+     
+insert into  Poblacion  (codigo_p, nombre_p, num_habitantes, numero_platillo)  values  (4560000000, 'Merida', 1400000, 1);
+insert into  Poblacion  (codigo_p, nombre_p, num_habitantes, numero_platillo)  values  (4560000001, 'Cancun', 2560700, 3);
+insert into  Poblacion  (codigo_p, nombre_p, num_habitantes, numero_platillo)  values  (4560000002, 'Veracruz', 7500700, 4);
+insert into  Poblacion  (codigo_p, nombre_p, num_habitantes, numero_platillo)  values  (4560000003, 'Campeche', 44005301, 4);
+insert into  Poblacion  (codigo_p, nombre_p, num_habitantes, numero_platillo)  values  (4560000004, 'Villahermosa', 5304030, 5);
+     
+     
+insert into  Centro   (codigo_c, nombre_c, calle_c, colonia_c, telefono_c, codigo_poblacion)  values  (333, 'COMO y COMO #12','Auracarias','Animas',2288101923,4560000002);
+insert into  Centro   (codigo_c, nombre_c, calle_c, colonia_c, telefono_c, codigo_poblacion)  values  (332, 'COMO y COMO #14','20 de noviembre','Centro',2288304923,4560000002);
+insert into  Centro   (codigo_c, nombre_c, calle_c, colonia_c, telefono_c, codigo_poblacion)  values  (335, 'COMO y COMO #1','Benito Juarez','Venustiano',9988102439,4560000003);
+insert into  Centro   (codigo_c, nombre_c, calle_c, colonia_c, telefono_c, codigo_poblacion)  values  (336, 'COMO y COMO #4','Buenavista','Encanto',4485131923,4560000004);
+insert into  Centro   (codigo_c, nombre_c, calle_c, colonia_c, telefono_c, codigo_poblacion)  values  (337, 'COMO y COMO #3','Arboleda','Ploresta',7618101923,4560000001);
+     
+     
+insert into  Empleado  (rfc, nombre_e, aPaterno_e, aMaterno_e, calle_e, colonia_e, telefono, codigo_centro)  values  ('ROPL951201', 'Luis' , 'Romero' ,'Plazuelos' , 'Las palomas','Aguilas1',2281160997,333);
+insert into  Empleado  (rfc, nombre_e, aPaterno_e, aMaterno_e, calle_e, colonia_e, telefono, codigo_centro)  values  ('COME921021', 'Edmundo' , 'Cordova' ,'Murrieta' , 'Durazno','Frutales',2281160997,332);
+insert into  Empleado  (rfc, nombre_e, aPaterno_e, aMaterno_e, calle_e, colonia_e, telefono, codigo_centro)  values  ('ABPE930515', 'Erubiel' , 'Aburto' ,'Pablo' , '8 de agosto','Pericentro',2281160997,337);
+insert into  Empleado  (rfc, nombre_e, aPaterno_e, aMaterno_e, calle_e, colonia_e, telefono, codigo_centro)  values  ('HECM901101', 'Matias' , 'Hernandez' ,'Castillo' , 'Independencia','Revolucion',2281160997,335);
+insert into  Empleado  (rfc, nombre_e, aPaterno_e, aMaterno_e, calle_e, colonia_e, telefono, codigo_centro)  values  ('PEOJ930412', 'Joaquin' , 'Perez' ,'Ortega' , 'Agua Santa','Carolino Anaya',2281160997,336);
+     
+     
+insert into  Factura  (codigo_f, dia, mes, ano, codigo_cliente)  values  (0000100, 01,01,2014, 1234567890);
+insert into  Factura  (codigo_f, dia, mes, ano, codigo_cliente)  values  (0000200, 02,01,2014, 1234567891);
+insert into  Factura  (codigo_f, dia, mes, ano, codigo_cliente)  values  (0000300, 03,01,2014, 1233567890);
+insert into  Factura  (codigo_f, dia, mes, ano, codigo_cliente)  values  (0000400, 03,01,2014, 1222222890);
+insert into  Factura  (codigo_f, dia, mes, ano, codigo_cliente)  values  (0000500, 04,01,2014, 1234447890);
+
+
+
+
+
+
