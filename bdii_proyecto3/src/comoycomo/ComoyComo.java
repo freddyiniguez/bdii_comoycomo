@@ -1,12 +1,11 @@
 package comoycomo;
 
 import java.awt.BorderLayout;
-
 import javax.swing.*;
 
 public class ComoyComo extends JFrame{
 	private static final long serialVersionUID = 1L;
-	private JTabbedPane pestañas;
+	private JTabbedPane pestaÃ±as;
 	private JMenuBar menuBar;
 	private JMenu file, edit, help;
 	private JMenuItem documentation;
@@ -19,57 +18,57 @@ public class ComoyComo extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		
-		pestañas = new JTabbedPane();
+		pestaÃ±as = new JTabbedPane();
 		
-		definePestañas();
+		definePestaÃ±as();
 		defineMenus();
 		
-		this.add(pestañas);
+		this.add(pestaÃ±as);
 		this.setJMenuBar(menuBar);
 	}
 	
-	private void definePestañas(){
-		// Definición de pestaña de Clientes
+	private void definePestaÃ±as(){
+		// DefiniciÃ³n de pestaÃ±a de Clientes
 		JPanel pClientes = new JPanel(null);	
 		JLabel lbClientes = new JLabel("Altas, bajas y Cambios");
 		lbClientes.setBounds(100,100,200,70);
 		pClientes.add(lbClientes);
-		pestañas.addTab("Clientes",null,pClientes);
+		pestaÃ±as.addTab("Clientes",null,pClientes);
 		
-		// Definiciòn de la pestaña de Platillos
+		// DefiniciÃ³n de pestaÃ±a de Platillos
 		JPanel pPlatillos = new JPanel(null);
 		JLabel lbPlatillos = new JLabel("Altas, bajas y Cambios");
 		pPlatillos.setLayout(new BorderLayout());
 		pPlatillos.add(lbPlatillos, BorderLayout.CENTER);
-		pestañas.addTab("Platillos", null, pPlatillos);
+		pestaÃ±as.addTab("Platillos", null, pPlatillos);
 		
-		// Definición de la pestaña de Población
+		// DefiniciÃ³n de pestaÃ±a de PoblaciÃ³n
 		JPanel pPoblacion = new JPanel(null);
 		JLabel lbPoblacion = new JLabel("Altas, bajas y Cambios");
 		pPoblacion.setLayout(new BorderLayout());
 		pPoblacion.add(lbPoblacion,BorderLayout.CENTER);
-		pestañas.addTab("Población", null, pPoblacion);
+		pestaÃ±as.addTab("PoblaciÃ³n", null, pPoblacion);
 		
-		// Definición de la pestaña de Centro
+		// DefiniciÃ³n de pestaÃ±a de Centro
 		JPanel pCentro = new JPanel(null);
 		JLabel lbCentro = new JLabel("Altas, bajas y Cambios");
 		pCentro.setLayout(new BorderLayout());
 		pCentro.add(lbCentro,BorderLayout.CENTER);
-		pestañas.addTab("Centros", null, pCentro);
+		pestaÃ±as.addTab("Centros", null, pCentro);
 		
-		// Definición de la pestaña de Empleado
+		// DefiniciÃ³n de pestaÃ±a de Empleado
 		JPanel pEmpleado = new JPanel(null);
 		JLabel lbEmpleado = new JLabel("Altas, bajas y Cambios");
 		pEmpleado.setLayout(new BorderLayout());
 		pEmpleado.add(lbEmpleado,BorderLayout.CENTER);
-		pestañas.addTab("Empleados", null, pEmpleado);
+		pestaÃ±as.addTab("Empleados", null, pEmpleado);
 		
-		// Definición de la pestaña de Factura
+		// DefiniciÃ³n de pestaÃ±a de Factura
 		JPanel pFactura = new JPanel(null);
 		JLabel lbFactura= new JLabel("Altas, bajas y Cambios");
 		pFactura.setLayout(new BorderLayout());
 		pFactura.add(lbFactura,BorderLayout.CENTER);
-		pestañas.addTab("Facturas", null, pFactura);
+		pestaÃ±as.addTab("Facturas", null, pFactura);
 	}
 	
 	private void defineMenus(){
@@ -77,7 +76,7 @@ public class ComoyComo extends JFrame{
 		file = new JMenu("Archivo");
 		edit =  new JMenu("Editar");
 		help = new JMenu("Ayuda");
-		documentation = new JMenuItem("Ver documentación");
+		documentation = new JMenuItem("Ver documentaciÃ³n");
 		help.add(documentation);
 		menuBar.add(file);
 		menuBar.add(edit);
