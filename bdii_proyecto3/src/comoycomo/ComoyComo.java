@@ -20,6 +20,7 @@ public class ComoyComo extends JFrame implements ActionListener{
 	private JMenuBar menuBar;
 	private JMenu file, edit, help;
 	private JMenuItem documentation, exit;
+	private JButton btnClientes, btnPlatillos, btnPoblacion, btnCentros, btnEmpleados, btnFacturas;
 	
 	/**
 	 * @author freddy
@@ -55,6 +56,18 @@ public class ComoyComo extends JFrame implements ActionListener{
 		JSeparator spClientes = new JSeparator();
 		spClientes.setBounds(10,30,300,20);
 		pClientes.add(spClientes);
+		// Se crea el botón que se usará para registrar un nuevo cliente.
+		btnClientes = new JButton("Añadir");
+		btnClientes.setBounds(670,380,100,30);
+		btnClientes.addActionListener(this);
+		pClientes.add(btnClientes);
+		// Se define la lista de títulos que contendrá la tabla de clientes.
+		String[] titClientes = {"Código",
+								"Nombre(s)",
+								"Apellido Paterno",
+								"Apellido Materno",
+								"Dirección", 
+								"Pedidos en total"};
 		// Se asigna un color al panel y se agrega a la pestaña que lo va a contener.
 		pClientes.setBackground(Color.LIGHT_GRAY);
 		pestañas.addTab("Clientes",null,pClientes);
@@ -67,6 +80,14 @@ public class ComoyComo extends JFrame implements ActionListener{
 		JSeparator spPlatillos = new JSeparator();
 		spPlatillos.setBounds(10,30,300,20);
 		pPlatillos.add(spPlatillos);
+		btnPlatillos = new JButton("Añadir");
+		btnPlatillos.setBounds(670,380,100,30);
+		btnPlatillos.addActionListener(this);
+		pPlatillos.add(btnPlatillos);
+		String[] titPlatillos = {"Código", 
+								"Nombre", 
+								"Descripción", 
+								"Precio"};
 		pPlatillos.setBackground(Color.LIGHT_GRAY);
 		pestañas.addTab("Platillos", null, pPlatillos);
 		
@@ -78,6 +99,13 @@ public class ComoyComo extends JFrame implements ActionListener{
 		JSeparator spPoblacion = new JSeparator();
 		spPoblacion.setBounds(10,30,300,20);
 		pPoblacion.add(spPoblacion);
+		btnPoblacion = new JButton("Añadir");
+		btnPoblacion.setBounds(670,380,100,30);
+		btnPoblacion.addActionListener(this);
+		pPoblacion.add(btnPoblacion);
+		String[] titPoblacion = {"Código", 
+								"Nombre", 
+								"Habitantes"};
 		pPoblacion.setBackground(Color.LIGHT_GRAY);
 		pestañas.addTab("Población", null, pPoblacion);
 		
@@ -89,6 +117,15 @@ public class ComoyComo extends JFrame implements ActionListener{
 		JSeparator spCentro = new JSeparator();
 		spCentro.setBounds(10,30,300,20);
 		pCentro.add(spCentro);
+		btnCentros = new JButton("Añadir");
+		btnCentros.setBounds(670,380,100,30);
+		btnCentros.addActionListener(this);
+		pCentro.add(btnCentros);
+		String[] titCentros = {"Código", 
+								"Nombre", 
+								"Direccion", 
+								"Teléfono", 
+								"CP"};
 		pCentro.setBackground(Color.LIGHT_GRAY);
 		pestañas.addTab("Centros", null, pCentro);
 		
@@ -100,6 +137,19 @@ public class ComoyComo extends JFrame implements ActionListener{
 		JSeparator spEmpleado = new JSeparator();
 		spEmpleado.setBounds(10,30,300,20);
 		pEmpleado.add(spEmpleado);
+		btnEmpleados = new JButton("Añadir");
+		btnEmpleados.setBounds(670,380,100,30);
+		btnEmpleados.addActionListener(this);
+		pEmpleado.add(btnEmpleados);
+		String[] titEmpleados = {"Código", 
+								"Nombre(s)", 
+								"Apellido Paterno", 
+								"Apellido Materno", 
+								"Dirección" ,
+								"Teléfono", 
+								"Población", 
+								"Código_Centro", 
+								"CP"};
 		pEmpleado.setBackground(Color.LIGHT_GRAY);
 		pestañas.addTab("Empleados", null, pEmpleado);
 		
@@ -111,6 +161,16 @@ public class ComoyComo extends JFrame implements ActionListener{
 		JSeparator spFactura = new JSeparator();
 		spFactura.setBounds(10,30,300,20);
 		pFactura.add(spFactura);
+		btnFacturas = new JButton("Añadir");
+		btnFacturas.setBounds(670,380,100,30);
+		btnFacturas.addActionListener(this);
+		pFactura.add(btnFacturas);
+		String[] titFacturas = {"Código",
+								"Fecha",
+								"Cantidad",
+								"Total",
+								"Código_Cliente",
+								"RFC"};
 		pFactura.setBackground(Color.LIGHT_GRAY);
 		pestañas.addTab("Facturas", null, pFactura);
 	}
@@ -133,6 +193,30 @@ public class ComoyComo extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// Se presionó el botón de Añadir Cliente
+		if(e.getSource()==btnClientes){
+			System.out.println("Presionado botón de Cliente.");
+		}
+		// Se presionó el botón de Añadir Platillo
+		if(e.getSource()==btnPlatillos){
+			System.out.println("Presionado botón de Platillo.");
+		}
+		// Se presionó el botón de Añadir Población
+		if(e.getSource()==btnPoblacion){
+			System.out.println("Presionado botón de Población.");
+		}
+		// Se presionó el botón de Añadir Centros
+		if(e.getSource()==btnCentros){
+			System.out.println("Presionado botón de Centros.");
+		}
+		// Se presionó el botón de Añadir Empleados
+		if(e.getSource()==btnEmpleados){
+			System.out.println("Presionado botón de Empleados.");
+		}
+		// Se presionó el botón de Añadir Facturas
+		if(e.getSource()==btnFacturas){
+			System.out.println("Presionado botón de Facturas.");
+		}
 		// Se presionó la tecla de Documentación
 		if(e.getSource()==documentation){
 			try {
