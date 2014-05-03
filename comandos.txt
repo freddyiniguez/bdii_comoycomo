@@ -105,7 +105,7 @@ insert into  Factura  (codigo_f, dia, mes, ano, codigo_cliente)  values  (000040
 insert into  Factura  (codigo_f, dia, mes, ano, codigo_cliente)  values  (0000500, 04,01,2014, 1234447890);
 
 
-
+S
 
 
 
