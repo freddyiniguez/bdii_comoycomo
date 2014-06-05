@@ -12,3 +12,5 @@ Se debe de incluir un documento en donde se describa detalladamente cómo se log
 El trabajo deberá ser entregado impreso y en versión digital enviado al correo electrónico vorozco@uv.mx
 
 La fecha de entrega del presente proyecto es para el martes 06 de Mayo de 2014. Todos los integrantes del equipo deberan estar presentes.
+
+C O N C L U I D O
